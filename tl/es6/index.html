@@ -1,0 +1,1180 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实战ECMAScript2016/2017 - By 邵磊</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.blue.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide fill" style="background-image:url('./img/bg1.png')"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>实战ECMAScript2016/2017</h1>
+<h2>演讲者：邵磊</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>ECMAScript背景介绍</h2>
+
+</hgroup><article>
+
+<ul>
+<li>European Computer Manufacturers Association 欧洲计算机制造商协会</li>
+<li><p>方言</p>
+<ul>
+<li>网景Javascript</li>
+<li>微软JScript</li>
+<li>Adobe Flash ActionScript</li>
+</ul>
+</li>
+<li><p>发展脚步
+标准化脚步落后于实现，到2009年后开始统一ES5。
+随着手机浏览器的流行，加速规范</p>
+</li>
+<li><p>目前最重要的三个js执行引擎</p>
+<ul>
+<li>苹果的JSCore</li>
+<li>火狐的SpiderMonkey</li>
+<li>Google的V8</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>ECMAScript发展近况</h2>
+
+</hgroup><article>
+
+<ul>
+<li>ES6（ES2015）2009～2015 版本推出艰难，新特性太多导致不能封板</li>
+<li>ES7（ES2016）async/await等新特性</li>
+<li>ES2017 ES2018 next ... 每年发布一次，追加新特性，快速推进</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>浏览器／js引擎兼容性表格</h2>
+
+</hgroup><article>
+
+<p><a href="http://kangax.github.io/compat-table/es6/" target="_blank">http://kangax.github.io/compat-table/es6/</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>开发环境对es6/7的支持</h2>
+
+</hgroup><article>
+
+<ul>
+<li>nodejs 8.x以上</li>
+<li>babel es6/7 ==&gt; es5 翻译工具
+常用的vue, react 的项目脚手架工具已经集成了babel</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>大纲</h2>
+
+</hgroup><article>
+
+<ul>
+<li>变量声明和作用域</li>
+<li>对象简写形式</li>
+<li>函数参数默认值</li>
+<li>for...of</li>
+<li>字符串增强</li>
+<li>解构赋值</li>
+<li>对象的增强</li>
+<li>函数的增强</li>
+<li>数组的增强</li>
+<li>异步处理的增强（Promise与async/await）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>变量声明和作用域</h1>
+<p><strong>let</strong> 变量，声明后可以改变的量<br> 
+<strong>const</strong> 常量，声明时赋值，不可以改变<br></p>
+<pre><code>let a = 10;
+const b = 20;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1><strong>块级作用域</strong>，<strong>{}</strong>扩起来的区域内部声明的变量，外部不可见 {:&amp;.flexbox.vleft}</h1>
+<pre><code>{
+  let a = 10;
+  var b = 1;
+}
+
+a // ReferenceError: a is not defined.
+b // 1
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>循环体外报错引用未定义</h1>
+<pre><code>for (let i = 0; i &lt; 10; i++) {
+  // ...
+}
+console.log(i); //ReferenceError: i is not defined
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>不允许重复声明变量, 避免了变量名相同导致的逻辑冲突</h1>
+<pre><code>var a = 2
+var a = 3
+//ok
+
+//error
+let a = 2
+let a = 3
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>ES5只有全局作用域／函数作用域，ES6新增块级作用域</h1>
+<pre><code>// 立即执行的函数表达式写法，将tmp封装在函数内部，对外不可见
+(function () {
+  var tmp = ...;
+  ...
+}());
+
+// 块级作用域写法
+{
+  let tmp = ...;
+  ...
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>why引入块级作用域？</h1>
+<p>第一种场景，内层变量可能会覆盖外层变量。</p>
+<pre><code>var tmp = new Date();
+
+function f() {
+  console.log(tmp);
+  if (false) {
+    var tmp = &#39;hello world&#39;;
+  }
+}
+f(); // undefined
+</code></pre><p>上面代码的原意是，if代码块的外部使用外层的tmp变量，内部使用内层的tmp变量。但是，函数f执行后，输出结果为undefined，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>第二种场景，用来计数的循环变量泄露为全局变量。</h1>
+<pre><code>var s = &#39;hello&#39;;
+
+for (var i = 0; i &lt; s.length; i++) {
+  console.log(s[i]);
+}
+
+console.log(i); // 5,
+</code></pre><p>上面代码中，变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。
+在其他高级语言中i应当视作未定义，无法编译通过</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>对象的简写形式</h2>
+<hr>
+<p>如果属性名与变量名相同时，定义对象可以简写</p>
+<pre><code>let width = 5;
+let length = 10;
+</code></pre><pre><code>let rect = { width, length };
+</code></pre><p>等同于</p>
+<pre><code>let rect = { width: width, length: length };
+</code></pre><p>函数简写</p>
+<pre><code>let obj = {
+    someMethods: function(){}
+}
+</code></pre><p>等同于</p>
+<pre><code>let obj = {
+    someMethods(){}
+}
+</code></pre><hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>函数参数默认值</h2>
+<hr>
+<pre><code>function rectArea ( length=0, width=0 ) {
+return length * width;
+}
+
+let a = reactArea()
+//a = 0
+</code></pre><hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>for...of</h2>
+<hr>
+<p>用于遍历数组成员，字符串，Set和Map结构等等</p>
+<pre><code>const arr = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;];
+
+for(let v of arr) {
+  console.log(v); // red green blue
+}
+</code></pre><pre><code>// 字符串
+let str = &quot;hello&quot;;
+
+for (let s of str) {
+  console.log(s); // h e l l o
+}
+</code></pre><hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串增强</h2>
+
+</hgroup><article>
+
+<ul>
+<li>includes()：返回布尔值，表示是否找到了参数字符串。</li>
+<li>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
+<li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
+<li>模版字符串</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>模版字符串</h1>
+<p>${} 内部可以是字符串常量或者返回一个字符串的表达式</p>
+<pre><code>let place = &#39;world&#39;;
+let msg = `Hello, ${&#39;beijing&#39;}`;
+//Hello beijing
+</code></pre><pre><code>let msg = `Hello, ${place}`;
+//Hello world
+</code></pre><p>模版嵌套</p>
+<pre><code>const tmpl = addrs =&gt; `
+  &lt;table&gt;
+  ${addrs.map(addr =&gt; `
+    &lt;tr&gt;&lt;td&gt;${addr.first}&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;${addr.last}&lt;/td&gt;&lt;/tr&gt;
+  `).join(&#39;&#39;)}
+  &lt;/table&gt;
+`;
+
+const data = [
+    { first: &#39;&lt;Jane&gt;&#39;, last: &#39;Bond&#39; },
+    { first: &#39;Lars&#39;, last: &#39;&lt;Croft&gt;&#39; },
+];
+
+console.log(tmpl(data));
+</code></pre><pre><code>&lt;table&gt;
+
+   &lt;tr&gt;&lt;td&gt;&lt;Jane&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;&lt;td&gt;Bond&lt;/td&gt;&lt;/tr&gt;
+
+   &lt;tr&gt;&lt;td&gt;Lars&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;&lt;td&gt;&lt;Croft&gt;&lt;/td&gt;&lt;/tr&gt;
+
+ &lt;/table&gt;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>解构赋值</h2>
+
+</hgroup><article>
+
+<ul>
+<li>数组解构赋值</li>
+<li>对象解构赋值</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>数组解构赋值</h1>
+<p>类似模式匹配</p>
+<pre><code>let [a, b, c] = [1, 2, 3];    //基本使用
+</code></pre><p>嵌套</p>
+<pre><code>let [foo, [[bar], baz]] = [1, [[2], 3]];
+foo // 1
+bar // 2
+baz // 3
+</code></pre><p>,占位符</p>
+<pre><code>let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];
+third // &quot;baz&quot;
+
+let [x, , y] = [1, 2, 3];
+x // 1
+y // 3
+</code></pre><p>...运算符</p>
+<pre><code>let [head, ...tail] = [1, 2, 3, 4];
+head // 1
+tail // [2, 3, 4]
+
+let [x, y, ...z] = [&#39;a&#39;];
+x // &quot;a&quot;
+y // undefined
+z // []
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>对象的解构赋值</h1>
+<p>按照属性名赋值</p>
+<pre><code>let { foo, bar } = { foo: &quot;aaa&quot;, bar: &quot;bbb&quot; };
+foo // &quot;aaa&quot;
+bar // &quot;bbb&quot;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>按照格式解析</h1>
+<p>是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者</p>
+<pre><code>let { foo: baz } = { foo: &#39;aaa&#39;, bar: &#39;bbb&#39; };
+baz // &quot;aaa&quot;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>...运算符在对象解构赋值中使用</h1>
+<pre><code>let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x // 1
+y // 2
+z // { a: 3, b: 4 }
+
+function wrapperFunction({ x, y, ...restConfig }) {
+    console.log(x,y,restConfig)
+}
+wrapperFunction({x:1,y:2,z:3,a:4})
+//1 2 {z: 3, a: 4}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>对象作为函数参数的解析赋值  </h1>
+<p>参数名称与传入对象的属性名称相同</p>
+<pre><code>function rectArea ( { length, width } ) {
+   return length * width;
+}
+</code></pre><p>对象作为函数参数的解析赋值时也可以有默认值
+作为参数的对象可以有默认值,</p>
+<pre><code>function move ( obj = {x:0, y:0} ) {
+
+}
+</code></pre><p>作为参数的对象属性也可以有默认值</p>
+<pre><code>function move({x = 0, y = 0}) {
+
+}
+</code></pre><p>二者结合：</p>
+<pre><code>function move({x = 0, y = 0} = {}) {
+  return [x, y];
+}
+</code></pre><pre><code>move({x: 3, y: 8}); // [3, 8]
+move({x: 3}); // [3, 0]
+move({}); // [0, 0]
+move(); // [0, 0]
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>变量解构赋值的实际用途</h1>
+<p>（1）交换变量的值</p>
+<pre><code>let x = 1;
+let y = 2;
+[x, y] = [y, x];
+</code></pre><p>上面代码交换变量x和y的值，这样的写法不仅简洁，而且易读，语义非常清晰。</p>
+<p>（2）从函数返回多值</p>
+<pre><code>// 返回一个对象
+function example() {
+  return {
+    foo: 1,
+    bar: 2
+  };
+}
+let { foo, bar } = example();
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>&nbsp;</h1>
+<p>(3) 给定函数参数的默认值</p>
+<pre><code>jQuery.ajax = function (url, {
+  async = true,
+  beforeSend = function () {},
+  cache = true,
+  complete = function () {},
+  crossDomain = false,
+  global = true,
+  // ... more config
+} = {}) {
+  // ... do stuff
+};
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>函数的增强</h2>
+<hr>
+<ul>
+<li>箭头函数</li>
+<li>rest参数</li>
+</ul>
+<hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>箭头函数</h1>
+<pre><code>function sum(num1, num2) {
+  return num1 + num2;
+}
+</code></pre><p>等同</p>
+<pre><code>var sum = (num1, num2) =&gt; { return num1 + num2; }
+</code></pre><p>如果参数只有一个，那么参数的括号可以省略</p>
+<pre><code>var inc = num =&gt; { return num + 1; }
+</code></pre><p>如果函数体只有一句，并且表达式的值作为返回值，关键字return和函数体的大括号也可以省略</p>
+<pre><code>var inc = num =&gt; num + 1;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>箭头函数有几个使用注意点。</h1>
+<ul>
+<li><p>函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。</p>
+</li>
+<li><p>不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。</p>
+</li>
+<li><p>不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</p>
+</li>
+<li><p>不可以使用yield命令，因此箭头函数不能用作 Generator 函数。</p>
+</li>
+</ul>
+<pre><code>function foo() {
+  setTimeout(() =&gt; {
+    console.log(&#39;id:&#39;, this.id);
+  }, 100);
+}
+
+var id = 21;
+
+foo.call({ id: 42 });
+// id: 42
+</code></pre><p>第一点尤为重要，foo.call时给定foo执行时this为对象{id:42}, 箭头函数中的this承接的是定义阶段的this，因此也是{id:42}
+如果回调函数为普通函数，this绑定的是回调函数执行时的this，也就是window对象</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>rest参数</h1>
+<p>rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
+<p>arguments对象不是数组，而是一个类似数组的对象。所以为了使用数组的方法，必须使用Array.prototype.slice.call先将其转为数组。rest 参数就不存在这个问题，它就是一个真正的数组，数组特有的方法都可以使用。</p>
+<p>arguments变量的写法</p>
+<pre><code>function sortNumbers() {
+  return Array.prototype.slice.call(arguments).sort();
+}
+</code></pre><p>rest参数的写法</p>
+<pre><code>const sortNumbers = (...numbers) =&gt; numbers.sort();
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>对象的增强</h2>
+<ul>
+<li>对象合并</li>
+<li>对象属性遍历</li>
+<li>es6生成对象方式 class</li>
+<li>class继承</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>对象合并 Object.assign() </h1>
+<p>Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+<pre><code>const target = { a: 1 };
+const source1 = { b: 2 };
+const source2 = { c: 3 };
+
+Object.assign(target, source1, source2);
+target // {a:1, b:2, c:3}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>常见用途</h1>
+<p>（1）为对象添加属性</p>
+<pre><code>class Point {
+  constructor(x, y) {
+    Object.assign(this, {x, y});
+  }
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>常见用途</h1>
+<p>2）为对象添加方法</p>
+<pre><code>Object.assign(SomeClass.prototype, {
+  someMethod(arg1, arg2) {
+    ···
+  },
+  anotherMethod() {
+    ···
+  }
+});
+
+// 等同于下面的写法
+SomeClass.prototype.someMethod = function (arg1, arg2) {
+  ···
+};
+SomeClass.prototype.anotherMethod = function () {
+  ···
+};
+</code></pre><p>上面代码使用了对象属性的简洁表示法，直接将两个函数放在大括号中，再使用assign方法添加到SomeClass.prototype之中。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>常见用途</h1>
+<p>（3）克隆对象</p>
+<pre><code>function clone(origin) {
+  return Object.assign({}, origin);
+}
+</code></pre><p>上面代码将原始对象拷贝到一个空对象，就得到了原始对象的克隆。</p>
+<p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
+<pre><code>function clone(origin) {
+  let originProto = Object.getPrototypeOf(origin);
+  return Object.assign(Object.create(originProto), origin);
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>常见用途</h1>
+<p>（4）为属性指定默认值</p>
+<pre><code>const DEFAULTS = {
+  logLevel: 0,
+  outputFormat: &#39;html&#39;
+};
+
+function processContent(options) {
+  obj = Object.assign({}, DEFAULTS, options);
+  return obj
+  // ...
+}
+</code></pre><p>上面代码中，DEFAULTS对象是默认值，options对象是用户提供的参数。Object.assign方法将DEFAULTS和options合并成一个新对象，如果两者有同名属性，则option的属性值会覆盖DEFAULTS的属性值。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>对象属性遍历 </h1>
+<p> Object.keys()，Object.values()，Object.entries()</p>
+<p>for..of 不能直接遍历对象，但是可以通过对象属性访问函数遍历</p>
+<pre><code>let {keys, values, entries} = Object;
+let obj = { a: 1, b: 2, c: 3 };
+
+for (let key of keys(obj)) {
+  console.log(key); // &#39;a&#39;, &#39;b&#39;, &#39;c&#39;
+}
+
+for (let value of values(obj)) {
+  console.log(value); // 1, 2, 3
+}
+
+for (let [key, value] of entries(obj)) {
+  console.log([key, value]); // [&#39;a&#39;, 1], [&#39;b&#39;, 2], [&#39;c&#39;, 3]
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>对象的扩展运算符</h1>
+<p>对象的扩展运算符（...）用于取出参数对象的所有可遍历属性，拷贝到当前对象之中。</p>
+<pre><code>let z = { a: 3, b: 4 };
+let n = { ...z };
+n // { a: 3, b: 4 }
+</code></pre><p>这等同于使用Object.assign方法。</p>
+<pre><code>let aClone = { ...a };
+</code></pre><p>等同于</p>
+<pre><code>let aClone = Object.assign({}, a);
+</code></pre><p>还可以追加自定义属性</p>
+<pre><code>let aWithOverrides = { ...a, x: 1, y: 2 };
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>es6生成对象方式 class </h1>
+<p>ES5 和 ES6 生成对象方式的比较</p>
+<pre><code>//es5生成对象
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function () {
+  return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;;
+};
+</code></pre><pre><code>//es6生成对象
+//定义类
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  toString() {
+    return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;;
+  }
+}
+
+new Point(2,3)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>验证class只是es5声明对象的语法糖</h1>
+<pre><code>class Point {
+  // ...
+}
+
+typeof Point // &quot;function&quot;
+Point === Point.prototype.constructor // true
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>class 继承</h1>
+<pre><code>class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y); // 调用父类的constructor(x, y)
+    this.color = color;
+  }
+
+  toString() {
+    return this.color + &#39; &#39; + super.toString(); // 调用父类的toString()
+  }
+}
+</code></pre><p>super关键字用于调用父类的方法</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>数组的增强</h2>
+<hr>
+<ul>
+<li>扩展运算符</li>
+<li>Array.from()</li>
+<li>Array.of()</li>
+</ul>
+<hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>扩展运算符 ... 将数组展开为逗号分隔参数序列</h1>
+<pre><code>function add(x, y) {
+  return x + y;
+}
+
+const numbers = [4, 38];
+add(...numbers) // 42
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实用场景</h1>
+<ul>
+<li>拼接数组<pre><code>const a = [3,4]
+let b = [1,2,...a,5,6]
+//[1,2,3,4,5,6]
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实用场景</h1>
+<ul>
+<li>替代函数的 apply 方法
+由于扩展运算符可以展开数组，所以不再需要apply方法，将数组转为函数的参数了。</li>
+</ul>
+<p>ES5 的写法</p>
+<pre><code>Math.max.apply(null, [14, 3, 77])
+</code></pre><p>ES6 的写法</p>
+<pre><code>Math.max(...[14, 3, 77])
+</code></pre><p>等同于</p>
+<pre><code>Math.max(14, 3, 77);
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实用场景</h1>
+<p>用于解构赋值</p>
+<pre><code>const [first, ...rest] = [1, 2, 3, 4, 5];
+first // 1
+rest  // [2, 3, 4, 5]
+
+const [first, ...rest] = [];
+first // undefined
+rest  // []
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实用场景</h1>
+<p>实现字符串反转</p>
+<pre><code>let  str = &quot;happy&quot;
+[...str].reverse().join(&#39;&#39;)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Array.from()</h1>
+<p>将array-like对象(具备)转化为真正数组</p>
+<pre><code>let arrayLike = {
+    &#39;0&#39;: &#39;a&#39;,
+    &#39;1&#39;: &#39;b&#39;,
+    &#39;2&#39;: &#39;c&#39;,
+    length: 3
+};
+
+// ES5的写法
+var arr1 = [].slice.call(arrayLike); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+
+// ES6的写法
+let arr2 = Array.from(arrayLike); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+
+Array.from() 还可以接第二个参数
+Array.from({ &#39;2&#39;:10, length: 3 }, (x) =&gt; undefined === x ? 0 : x );
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实际应用</h1>
+<p>获取Dom对象</p>
+<pre><code>let ps = document.querySelectorAll(&#39;p&#39;);
+Array.from(ps).filter(p =&gt; {
+  return p.textContent.length &gt; 100;
+});
+</code></pre><p>将arguments对象转换为真正的数组</p>
+<pre><code>function foo() {
+  var args = Array.from(arguments);
+  // ...
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Array.of()</h1>
+<p>Array.of方法用于将一组值，转换为数组。
+Array.of(3, 11, 8) // [3,11,8]</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>Promise与async/await</h2>
+<hr>
+<ul>
+<li>同步处理和异步处理的介绍</li>
+<li>异步处理例子：ajax获取热映列表和电影详情</li>
+</ul>
+<hr>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Promise与async/await</h1>
+<ul>
+<li>异步处理例子：ajax获取热映列表和电影详情</li>
+</ul>
+<pre><code>var urlInTheaters = &quot;http://localhost:8080/v2/movie/in_theaters?count=3&quot;
+  var urlMovieDetail = &quot;http://localhost:8080/v2/movie/subject/&quot;
+
+  $.get( urlInTheaters, function( ret ) {
+    ret.subjects.forEach( function( item ) {
+
+      $.get( urlMovieDetail + item.id, function( ret ) {
+        //do something with detail
+      },&quot;json&quot;).error( (xhr, errorText, errorType) =&gt; {
+        console.log( errorText );
+      });
+
+    })
+  }, &quot;json&quot;).error( (xhr, errorText, errorType) =&gt; {
+    console.log( errorText );
+  });
+</code></pre><p>思考：如何等待三个请求结果都返回后再继续处理数据</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>引入Promise机制</h1>
+<ul>
+<li>Promise 对象</li>
+</ul>
+<p>本质上是一个状态机，状态一共有三种：未知，成功，失败。表示一个事件持续发生的过程，初始化时是未知，达到特定条件时状态变为成功或者失败。</p>
+<ul>
+<li><p>Promise 包含两个关键属性。</p>
+<ul>
+<li>一个状态属性；</li>
+<li><p>一个用户定义的事件处理函数。这个函数在执行过程中只可以改变状态属性一次。</p>
+<p>  未结束 ===》成功<br>
+  未结束 ===》失败</p>
+</li>
+</ul>
+</li>
+<li><p>用Promise封装一个异步处理过程，过程函数的定义模版</p>
+<pre><code>var promise = new Promise( function process( resolve,  reject ) {
+  if(...) {
+      resolve();
+  }else{
+      reject();
+  }
+})
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>&nbsp;</h1>
+<p>Promise对象生成后 (  new Promise( function(){} ) ), 事件处理函数会立即执行，通过调用resolve/reject来改变状态机的状态，</p>
+<ul>
+<li><p>更改Promise的状态, 同时可以将运行结果以回调函数参数的形式透传。</p>
+<ul>
+<li>resolve(x) 可以传递一个结果值x，同时将状态设为成功</li>
+<li>reject(y) 可以传递一个结果值y, 同时将状态设为失败</li>
+</ul>
+</li>
+<li><p>注册结果处理函数</p>
+<ul>
+<li>Promise.prototype.then( function(x){} )</li>
+<li>Promise.prototype.catch( function(y){} )
+Promise对象生成之后，通过then方法注册监听成功状态的事件处理函数，catch方法注册监听失败状态的事件处理函数。</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p class="flexbox vleft"><span>注意：同一个Promise对象可以多次注册，一旦状态满足就会立刻调用事件处理函数。 <span></p>
+<pre><code>var promise = new Promise( (resolve, reject) =&gt; { ... } );
+    promise.then( function(){ //处理函数1 ... } )
+    promise.then( function(){ //处理函数2 ... } )
+</code></pre><p class="flexbox vleft"><span>无论何时注册回调函数，只要promise的状态已经确定，被注册的回调函数都会触发 <span></p>
+<pre><code>let p = new Promise( (resolve,reject) =&gt; {
+    console.log(1);
+    resolve()
+});
+
+console.log(2)
+
+p.then( ()=&gt;console.log(3) );
+p.then( ()=&gt;console.log(3) );
+
+//1
+//2
+//3
+//3
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实际应用举例</h1>
+<p>定时器</p>
+<pre><code>function alarmAsync(){
+  return new Promise( resolve =&gt; setTimeout( () =&gt; resolve() , 1000 ) )
+}
+
+let pAlarm = alarmAsync();
+pAlarm.then( () =&gt; console.log(&#39;alarm after 1s!&#39;) );
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>实际应用举例</h1>
+<p>微信小程序的微信登录获取code</p>
+<pre><code>function wxloginAsync() {
+  return new Promise( (resolve, reject) =&gt; {
+    console.log(&quot;do wx login&quot;);
+    wx.login({
+      success: (e) =&gt; {
+        resolve(e.code);
+      },
+      fail: (e) =&gt; {
+        console.log(&quot;wx.login failed:&quot; + e.message);
+        reject( e );
+      }
+    });
+  });
+}
+
+let pWxLogin = wxloginAsync();
+
+pWxLogin.then( code =&gt; {
+console.log( &quot;成功获取微信登录code: &quot; + code);
+});
+
+pWxLogin.catch( error =&gt; {
+console.log( &quot;获取微信登录code失败，失败原因： &quot; +  error.message );
+)};
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>创建Promise对象时设定状态和值</h1>
+<ul>
+<li>创建一个Promise对象，它的初始状态为成功，参数直接作为then方法的参数传回<pre><code>Promise.resolve(x)
+</code></pre></li>
+<li>创建一个Promise对象，它的初始状态为失败，参数直接作为catch方法的参数传回<pre><code>Promise.reject(x)
+</code></pre></li>
+</ul>
+<h2>Promise.reject() 与 try/catch</h2>
+<pre><code>try{
+    Promise.reject(&quot;has some error&quot;);
+}catch(e){
+    console.log(e);
+}
+//has some error
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>Promise组合</h2>
+<ul>
+<li>Promise.all()</li>
+<li>Promise.race()</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Promise.all</h1>
+<pre><code>const p = Promise.all([p1, p2, p3]);
+</code></pre><p>p的状态由p1、p2、p3决定，分成两种情况。</p>
+<p>（1）只有p1、p2、p3的状态都变为成功，p的状态才会变成成功，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。</p>
+<p>（2）只要p1、p2、p3之中有一个状态变为失败，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code>const getJSON = function(url) {
+  const promise = new Promise(function(resolve, reject){
+    const handler = function() {
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response);
+      } else {
+        reject(new Error(this.statusText));
+      }
+    };
+    const client = new XMLHttpRequest();
+    client.open(&quot;GET&quot;, url);
+    client.onreadystatechange = handler;
+    client.responseType = &quot;json&quot;;
+    client.setRequestHeader(&quot;Accept&quot;, &quot;application/json&quot;);
+    client.send();
+
+  });
+
+  return promise;
+};
+
+const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
+  return getJSON(&#39;/post/&#39; + id + &quot;.json&quot;);
+});
+
+Promise.all(promises).then(function (posts) {
+  // ...
+}).catch(function(reason){
+  // ...
+});
+</code></pre><blockquote>
+<p>上面代码中，promises是包含 6 个 Promise 实例的数组，只有这 6 个实例的状态都变成fulfilled，或者其中有一个变为rejected，才会调用Promise.all方法后面的回调函数。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Promise.race() </h1>
+<pre><code>const p = Promise.race([p1, p2, p3]);
+</code></pre><p>p的状态由p1、p2、p3决定，与最早变成成功或失败的子Promise一致。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code>//示例：all／race对比
+var p1 = new Promise( resolve =&gt; {
+  setTimeout( ()=&gt;{
+    console.log( &quot;complete&quot;, 1 )
+    resolve(1);
+  }, 1000)
+});
+
+var p3 = new Promise( (resolve, reject) =&gt; {
+  setTimeout( ()=&gt;{
+    console.log( &quot;complete&quot;, 3 )
+    resolve(3);
+  }, 3000)
+});
+
+var p5 = new Promise( (resolve, reject) =&gt; {
+  setTimeout( ()=&gt;{
+    console.log( &quot;complete&quot;, 5 )
+    resolve(5);
+  }, 5000)
+});
+
+var p = Promise.all([p1,p3,p5]);
+
+p.then( retval =&gt; {
+  console.log( &quot;complete all&quot;, retval );
+}).catch( error =&gt;{
+  console.log(&quot;thrown all&quot;, error);
+});
+
+var q = Promise.race([p1,p3,p5]);
+
+q.then( retval =&gt; {
+  console.log( &quot;complete race&quot;, retval );
+}).catch( error =&gt;{
+  console.log(&quot;thrown race&quot;, error);
+});
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>输出</h1>
+<pre><code>complete 1
+complete race 1
+complete 3
+complete 5
+complete all &gt; (3) [1, 3, 5]
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>async/await</h1>
+<p>使用async/await简化异步处理的代码，看上去像是同步处理。</p>
+<pre><code>function asyncAlarmAfter( timeout ) {
+  return new Promise( resolve =&gt; setTimeout( () =&gt; resolve(timeout), timeout ));
+}
+
+async function execute() {
+  let retval = await asyncAlarmAfter(1000);
+  console.log(retval);
+  retval = await asyncAlarmAfter(2000);
+  console.log(retval);
+  //retval = await Promise.reject(&quot;发生了内部错误&quot;);
+  retval = await asyncAlarmAfter( 3000 );
+  return retval // return Promise.resolve( retval )
+}
+execute()
+  .then( retval =&gt; console.log( &#39;异步函数返回的Promise对象，通过then回调函数参数返回结果：&#39;, retval) )
+  .catch( error =&gt; console.log( &quot;异步处理过程中出现错误：&quot; + error ) );
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>用Promises和 async/await 实现ajax获取热映列表和电影详情</h1>
+<pre><code>var urlInTheaters = &quot;http://localhost:8080/v2/movie/in_theaters?count=3&quot;
+  var urlMovieDetail = &quot;http://localhost:8080/v2/movie/subject/&quot;
+
+  $.get( urlInTheaters, function( ret ) {
+    ret.subjects.forEach( function( item ) {
+
+      $.get( urlMovieDetail + item.id, function( ret ) {
+        //do something with detail
+      },&quot;json&quot;).error( (xhr, errorText, errorType) =&gt; {
+        console.log( errorText );
+      });
+
+    })
+  }, &quot;json&quot;).error( (xhr, errorText, errorType) =&gt; {
+    console.log( errorText );
+  });
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>用Promise封装ajax请求</h1>
+<pre><code>function ajaxGet( url ) {
+    return new Promise( (resolve, reject) =&gt; {
+      $.get( url, ret=&gt;{
+        resolve( ret );
+      }, &quot;json&quot;).error( (xhr, errorText, errorType) =&gt; {
+        reject( errorText );
+      });
+    });
+  }
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p class="flexbox vleft"><span>用Promise的then方法处理数据 <span></p>
+<pre><code>ajaxGet( urlInTheaters )
+    .then( ret =&gt; {
+      let requestPromises =
+        ret.subjects.map( item =&gt; ajaxGet( urlMovieDetail + item.id ) );
+      return Promise.all( requestPromises );
+    })
+    .then( details =&gt; {
+      console.log( details );
+      //此时三个请求都返回了，继续处理数据
+    })
+    .catch( err =&gt; console.log(&quot;发生错误：&quot;, err) );
+</code></pre><p class="flexbox vleft"><span>用async/await改写，并用try/catch捕捉状态为失败的Promise <span></p>
+<pre><code>//捕获异步执行过程中出现的错误
+  //执行失败的Promise也可以用try/catch代码块捕获，
+  async function execute2() {
+    try{
+      let ret = await ajaxGet( urlInTheaters );
+      let details = await Promise.all(
+        ret.subjects.map( item =&gt; ajaxGet( urlMovieDetail + item.id ) )
+      );
+      //此时三个请求都返回了，继续处理数据
+      console.log( details );
+    }catch( err ) {
+      console.log(&quot;发生错误：&quot;, err);
+    }
+  }
+
+  execute2();
+</code></pre>
+</article></section></slide>
+<slide class="slide fill" style="background-image:url('./img/bg1.png')"><section class="slide-wrapper"><hgroup>
+<h2>谢谢</h2>
+
+</hgroup><article>
+
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'zoomout',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+
+<!--placeholder-->
+</body>
+</html>

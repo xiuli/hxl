@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="gb2312" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta content="telephone=no" name="format-detection" /> 
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/respones.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/style.js" type="text/javascript"></script>
+		<script src="js/swiper.js" type="text/javascript" ></script>
+		<script src="js/wow.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://www.huatu.com/other/yuyue/js/validator.js"></script>
+
+		<title></title>
+	</head>
+	<body>
+		<!--pc top-->
+		<div class="pc-top">
+			<div class="t-middle">
+				<a href="http://jinrong.huatu.com/" class="logo"><img src="img/logo.png"/></a>
+				<ul class="navlist">
+					<li class="list"><a href="http://jinrong.huatu.com/" target="_blank">华图金领人</a></li>
+					<li class="list"><a href="http://jinrong.huatu.com/course/list.php" target="_blank">直播课程</a></li>
+					<li class="list"><a href="http://www.huatu.com/a/aboutus/lianxi.html" target="_blank">联系我们</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--phone top-->
+		<div class="phone-top">
+			<div class="top-nav">
+			  <a href="http://jinrong.huatu.com/" class="logo" target="_blank"><img src="img/logo.png"/></a>
+			  <span class="navicon "></span>
+			</div>
+			<ul class="sublist">
+				<li class="list"><a href="http://jinrong.huatu.com/" target="_blank">华图金领人</a></li>
+					<li class="list"><a href="http://jinrong.huatu.com/course/list.php" target="_blank">直播课程</a></li>
+					<li class="list"><a href="http://www.huatu.com/a/aboutus/lianxi.html" target="_blank">联系我们</a></li>
+			</ul>
+		</div>
+		<!--banner-->
+		<div class="banner">
+		</div>
+		<!--phone-banner-->
+		<div class="phone-banner">
+			<img src="img/phone-banner.jpg" class="img"/>
+		</div>
+		<!--phone-profile-->
+		<div class="phone-profile">
+			<p>第一时间获悉考试资讯，了解考试动态，对每一个未来银行家很重要，没有时间一一查找，没有时间分辨消息可信度，没有人提醒你报名是什么时候开，更没有人提醒你它已经结束。怎么办？2019年银行秋招公告预约，帮你解决这些琐事。更便捷的服务，更方便的获取信息，更可信的消息来源，还附赠备考资料，只要你来，通通拿走不用谢！</p>
+		</div>
+		<!--threeyuyue-->
+		<div class="three-yuyue">
+			<div class="main">
+				<div class="three-con">
+					<dl class="first">
+						<dt>
+							<span class="icon"></span>
+							<p>公告预约</p>
+						</dt>
+						<dd>（根据您提交的信息预约成功后，及时推送招考公告）</dd>
+					</dl>
+					<span class="line"></span>
+					<dl>
+						<dt>
+							<span class="icon icon2"></span>
+							<p>直播讲座</p>
+						</dt>
+						<dd>（了解考情，提前做好备考）</dd>
+					</dl>
+					<span class="line"></span>
+					<dl>
+						<dt>
+							<span class="icon icon3"></span>
+							<p>备考资料</p>
+						</dt>
+						<dd>（备考资料，技巧点拨，真题模拟免费送）</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!--time-->
+		<div class="time">
+			<div class="main">
+				<p class="time-title">秋招时间一览表</p>
+				<ul class="time-list">
+					<li><a href="http://jinrong.huatu.com/2018/0529/1640718.html" target="_blank">公告发布时间：预计2018年9月上旬</a></li>
+					<li class="t-two"><a href="http://jinrong.huatu.com/2018/0503/1635930.html" target="_blank">网申报名：预计2018年9月中下旬</a></li>
+					<li class="t-three"><a href="http://jinrong.huatu.com/yhzp_bs/" target="_blank">笔试时间：预计2018年11月初</a></li>
+					<li class="t-four"><a href="http://jinrong.huatu.com/yhzp_ms/" target="_blank">面试时间：预计2018年11下旬-12月</a></li>
+					<li class="t-five"><a href="javascript:void(0)" target="_blank">体检签约：预计2019年2月左右</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--info-->
+		<div class="info" id="yuyueinfo">
+			<div class="main">
+				<div class="formcon">
+					<form name='form1' id='demo' method='post' action='http://www.huatu.com/other/yuyue/yuyue_main.php' target='_top' onsubmit='return Validator.Validate(this,2)'>
+						<input type='hidden' class='text' name='examtype' id='examtype' value='5'>
+						<input type='hidden' class='text' name='schoolid' id='schoolid' value='1023'>
+						<input type='hidden' class='text' name='appinfoid' id='appinfoid' value='6344'>
+						<p class="form-title">公告预约</p>
+						<dl>
+							<dt>姓名</dt>
+							<dd><input type="text" class="txt" require='true' name='username' id='' dataType='Chinese' msg='真实姓名只允许中文'/></dd>
+						</dl>
+						<div id="clear"></div>
+						<dl>
+							<dt>电话</dt>
+							<dd><input type="text" class="txt" require='true' dataType="Mobile" class='text' name='mobile' id='shoujihao' msg='手机号码不正确'/></dd>
+						</dl>
+						<div id="clear"></div>
+						<script language="javascript" type="text/javascript" src="http://www.huatu.com/other/yuyue/js/province.js"></script>
+						<dl>
+							<dt>城市</dt>
+							<dd>
+								<select class="txt" dataType="Require" msg = "请输入省份" id="province" name="prov" onchange="changeProvince(document.getElementById('province'),document.getElementById('city'));">
+								</select>
+								<script language="javascript" type="text/javascript">
+									initialize(document.getElementById('province'),document.getElementById('city'),'','');
+								</script>
+							</dd>
+						</dl>
+						<div id="clear"></div>
+						<dl>
+							<dt>备考方式</dt>
+							<dd>
+								<select  class="txt" name="Ext1">
+									<option value='线下报班' selected='selected'>线下报班</option>
+									<option value='线上报班'>线上报班</option>
+									<option value='自己备考'>自己备考</option>
+								</select>
+							</dd>
+						</dl>
+						<div id="clear"></div>
+						<input type="submit" value="提交" class="btn"/>
+					</form>
+					<SCRIPT language=javascript type=text/javascript>
+					function Validate(frm){}function ChangeCode(){document.getElementById("imgcode").src="http://www.huatu.com/other/yuyue/include/imgcode.php?id="+Math.random();}</SCRIPT>
+					</SCRIPT>
+
+				</div>
+			</div>
+		</div>
+		<!--process-->
+		<div class="process" id="buzhou">
+			<div class="main">
+				<div class="process-title">按下面的步骤走完，入行其实很简单</div>
+				<div class="process-con">
+					<ul class="pro-list">
+						<li class="pro-itme1"><a href="http://jinrong.huatu.com/zt/2019sjzy/" target="_blank"><span>1</span>领取一份暑假作业，模个底</a></li>
+						<span class="line"></span>
+						<li class="pro-itme2"><a href="http://jinrong.huatu.com/zt/2019yh_jz" target="_blank"><span>2</span>听一听讲座，了解今年考试动态</a></li>
+						<span class="line"></span>
+						<li class="pro-itme3"><a href="http://jinrong.huatu.com/zt/yhwsjl/login.php" target="_blank"><span>3</span>完善网申简历，让自己更出众</a></li>
+						<span class="line"></span>
+						<li class="pro-itme4"><a href="http://jinrong.huatu.com/zt/2019yhzpsq/" target="_blank"><span>4</span>获得一份量身定制的金领计划，轻松应对考试</a></li>
+						<span class="line"></span>
+						<li class="pro-itme5"></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		<!--erweima-->
+		<div class="erweima">
+			<div class="main">
+				<p class="erweima-title">更多备考信息交流平台</p>
+				<div class="erweima-con">
+					<dl class="first">
+						<dt></dt>
+						<dd>2019秋招交流群</dd>
+					</dl>
+					<dl class="second">
+						<dt></dt>
+						<dd>华图金领人官方微信</dd>
+					</dl>
+					<dl class="third">
+						<dt></dt>
+						<dd>华图金领人APP</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!--qqgroup-->
+		<div class="qqgroup" id="qq">
+			<div class="main">
+				<div class="qqgroup-con">
+					<p class="add-title">请点击下方一键加群，更多惊喜等着你</p>
+					<p class="sub-title"><a href="https://jq.qq.com/?_wv=1027&k=5RAy7I0" target="_blank">全国545711431</a></p>
+					<ul class="qqlist">
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5iRs9lF" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>安徽</span><p>512998465</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<!--<li>
+							<a href="" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon">北京</span><br />605729826
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>-->
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=50DHf14" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>福建</span><p>706800547</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5dqTQy7" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>甘肃</span><p>137222325</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="http://qm.qq.com/cgi-bin/qm/qr?k=TPR3MC_H9jA6fVsl22_-gTgyVWmaKfXC" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>广东</span><p>153559685</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5cjatXg" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>广西</span><p>561141477</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5z1tcRs" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>贵州</span><p>133079383</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5K1KIDJ" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>河北</span><p>781515062</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5MFmWtT" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>河南</span><p>324169205</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=52h5bI6" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>黑龙江</span><p>814344697</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5wfRJqC" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>湖北</span><p>543503838</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5kHvqug" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>湖南</span><p>644868785</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5RXBRXc" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>吉林</span><p>130928903</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5RGBTqS" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>江苏</span><p>805390003</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5H6iym4" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>江西</span><p>260199273</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5QnLt6G" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>辽宁</span><p>461041550</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5VW9ZPy" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>内蒙古</span><p>762772223</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5Hsy6P9" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>宁夏</span><p>418634469</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5eYSQPG" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>山东</span><p>431686411</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5o9vDAd" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>山西</span><p>782014794</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5VnPgu8" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>陕西</span><p>326709066</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5jNhkdC" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>上海</span><p>343137297</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5slZt4p" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>四川</span><p>236228992</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=55UScGp" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>天津</span><p>170404222</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="http://qm.qq.com/cgi-bin/qm/qr?k=CpAquhksWTO7DG2gpkBo2_J2Y9FUNSx9" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>新疆</span><p>107402023</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5UitHrx" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>云南</span><p>231031358</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5sqyYFg" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>浙江</span><p>782515075</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://jq.qq.com/?_wv=1027&k=5Wupaq6" target="_blank" class="item">
+								<div class="z">
+										<span class="qqicon"><i></i>重庆</span><p>658328885</p>
+								</div>
+								<span class=" z f">
+									一键加群
+								</span>
+							</a>
+						</li>
+						<div id="clear"></div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="copy-middle">
+				<ul class="footer-list">
+					<li><a href="http://www.huatu.com/a/aboutus/" target="_blank">华图简介</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/rongyu.html" target="_blank">华图荣誉</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/gongyi.html" target="_blank">华图公益</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/meiti.html" target="_blank">媒体关注</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/lianxi.html" target="_blank">联系我们</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/falv.html" target="_blank">法律声明</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/mianze.html" target="_blank">免责声明</a></li>
+					<li><a href="http://www.huatu.com/data/sitemap.html" target="_blank">网站导航</a></li>
+					<li><a href="http://www.huatu.com/a/aboutus/yijian.html" target="_blank">投诉与建议</a></li>
+					<div id="clear"></div>
+				</ul>
+				<p>京ICP备11028696号-11 京ICP证130150号 京公网安备11010802021470号</p>
+			</div>
+		</div>
+		<!--slide-->
+		<div class="slide">
+			<a href="https://jq.qq.com/?_wv=1027&k=5RAy7I0" class="s-list s-list1" target="_blank">QQ咨询</a>
+			<a href="#yuyueinfo" class="s-list s-list2">公告预约</a>
+			<a href="#buzhou" class="s-list s-list2" >备考步骤</a>
+			<a href="#qq" class="s-list s-list2">全国交流</a>
+			<span class="s-list s-top">返回顶部</span>
+			<span class="close"></span>
+		</div>
+		<!--open-->
+		<div class="open">点<br />击<br />展<br />开</div>
+	</body>
+	    <script type="text/javascript">
+		    new WOW().init();
+		</script>
+		<script>
+		    var myswiper = new Swiper('.phone .swiper-container', {
+		      slidesPerView: 2,
+		      spaceBetween: 10,
+		      freeMode: true,
+		      pagination: {
+		        el: '.phone .swiper-pagination1',
+		        clickable: true,
+		      },
+		    });
+	    </script>
+</html>

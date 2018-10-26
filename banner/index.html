@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <title>网站banner管理后台</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <h2 class="banner_module">网站banner管理后台</h2>
+  <div class="body-box clearfix">
+    <ul class="layui-nav layui-nav-tree fl left-box" lay-filter="test">
+      <li class="layui-nav-item active" data-id="1">
+        <a href="javascript:void(0)">PC首页</a>
+      </li>
+      <li class="layui-nav-item" data-id="2">
+        <a href="javascript:void(0)">M站banner</a>
+      </li>
+      <li class="layui-nav-item" data-id="3">
+        <a href="javascript:void(0)">PC地方站</a>
+      </li>
+      <li class="layui-nav-item" data-id="4">
+        <a href="javascript:void(0)">PC直播课堂</a>
+      </li>
+      <li class="layui-nav-item" data-id="5">
+        <a href="javascript:void(0)">PC端class页面</a>
+      </li>
+      <li class="layui-nav-item" data-id="6">
+        <a href="javascript:void(0)">PC端招聘页面</a>
+      </li>
+      <li class="layui-nav-item" data-id="7">
+        <a href="javascript:void(0)">PC端资格页面</a>
+      </li>
+    </ul>
+
+    <div class="tab-box fr right-box">
+      <!-- PC首页 -->
+      <div class="pc-banner tab-show active">
+        <!--轮播图-->
+        <div class="part-box">
+          <p class="type-title">轮播图：</p>
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=pc&type=add&place=banner" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table pc-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--<tr>
+                  <td>
+                    <a href="javascript:void(0)">贤心</a>
+                  </td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <input type="text" value="1" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=pc&type=change&place=banner&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>-->
+              </tbody>
+            </table>
+          </div>
+          <div id="pc-page" class="page-box"></div>
+        </div>
+        <!--热门课程-->
+        <div class="part-box">
+          <p class="type-title">热门课程：</p>
+          <div class="layui-form">
+            <table class="layui-table rmkc-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!--<td>
+                    <a href="javascript:void(0)">笔试全程班</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=pc&type=change&place=rmck&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">顶部横幅：</p>
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=pc&type=add&place=hf1" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table headerHf-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--<tr>
+                  <td>贤心</td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <a href="./add.html?page=pc&type=change&place=hf1&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>-->
+              </tbody>
+            </table>
+          </div>
+          <div id="hf-page" class="page-box"></div>
+          <p class="type-title">普通横幅：</p>
+          <div class="layui-form">
+            <table class="layui-table pc_temp_hf">
+              <colgroup>
+                <col width="15%">
+                <col width="15%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>类型</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--<tr>
+                  <td>
+                    <a href="javascript:void(0)">招聘横幅</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=pc&type=change&place=hf2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- M站banner -->
+      <div class="m-banner tab-show ">
+        <form class="layui-form select-form" action="">
+          <div class="layui-form-item">
+            <label class="layui-form-label">请选择省份：</label>
+            <div class="layui-input-block">
+              <input type="radio" name="province" value="0" title="通用" checked="">
+              <input type="radio" name="province" value="1" title="北京市">
+              <input type="radio" name="province" title="上海市">
+              <input type="radio" name="province" title="天津市">
+              <input type="radio" name="province" title="重庆市">
+              <input type="radio" name="province" title="河北省">
+              <input type="radio" name="province" title="山西省">
+              <input type="radio" name="province" title="内蒙古">
+              <input type="radio" name="province" title="辽宁省">
+              <input type="radio" name="province" title="吉林省">
+              <input type="radio" name="province" title="黑龙江">
+              <input type="radio" name="province" title="江苏省">
+              <input type="radio" name="province" title="浙江省">
+              <input type="radio" name="province" title="安徽省">
+              <input type="radio" name="province" title="福建省">
+              <input type="radio" name="province" title="江西省">
+              <input type="radio" name="province" title="山东省">
+            </div>
+          </div>
+        </form>
+        <div class="search-box clearfix">
+          <input type="text" class="layui-input search-title" placeholder="请输入标题">
+          <button class="layui-btn search-btn">搜索</button>
+          <a href="./add.html?page=mobile&type=add" class="add">新增</a>
+        </div>
+
+        <div class="layui-form">
+          <table class="layui-table">
+            <colgroup>
+              <col>
+              <col width="15%">
+              <col width="15%">
+              <col width="10%">
+              <col width="10%">
+              <col width="20%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>标题</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>序号</th>
+                <th>是否推荐</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a href="javascript:void(0)">贤心</a>
+                </td>
+                <td>1989-10-14 18:18:18</td>
+                <td>1989-10-14</td>
+                <td>
+                  <input type="text" value="1" class="num">
+                </td>
+                <td>-</td>
+                <td>
+                  <a href="./add.html?page=mobile&type=change&id=1&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="javascript:void(0)">张爱玲</a>
+                </td>
+                <td>1880-06-27</td>
+                <td>1920-09-30</td>
+                <td>
+                  <input type="text" value="2" class="num">
+                </td>
+                <td>-</td>
+                <td>
+                  <a href="./add.html?page=mobile&type=change&id=2&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="javascript:void(0)">Helen Keller</a>
+                </td>
+                <td>1880-06-27</td>
+                <td>1880-06-27</td>
+                <td>
+                  <input type="text" value="3" class="num">
+                </td>
+                <td>是</td>
+                <td>
+                  <a href="./add.html?page=mobile&type=change&id=3&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="javascript:void(0)">岳飞</a>
+                </td>
+                <td>1880-06-27</td>
+                <td>1880-06-27</td>
+                <td>
+                  <input type="text" value="4" class="num">
+                </td>
+                <td>是</td>
+                <td>
+                  <a href="./add.html?page=mobile&type=change&id=4&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="javascript:void(0)">孟子</a>
+                </td>
+                <td>1880-06-27</td>
+                <td>1880-06-27</td>
+                <td>
+                  <input type="text" value="5" class="num">
+                </td>
+                <td>否</td>
+                <td>
+                  <a href="./add.html?page=mobile&type=change&id=5&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="m-page" class="page-box"></div>
+      </div>
+      <!-- PC地方站 -->
+      <div class="dfz-banner tab-show ">
+        <form class="layui-form select-form" action="">
+          <div class="layui-form-item">
+            <label class="layui-form-label">请选择省份：</label>
+            <div class="layui-input-block">
+              <input type="radio" name="province" value="0" title="通用" checked="">
+              <input type="radio" name="province" value="1" title="北京市">
+              <input type="radio" name="province" title="上海市">
+              <input type="radio" name="province" title="天津市">
+              <input type="radio" name="province" title="重庆市">
+              <input type="radio" name="province" title="河北省">
+              <input type="radio" name="province" title="山西省">
+              <input type="radio" name="province" title="内蒙古">
+              <input type="radio" name="province" title="辽宁省">
+              <input type="radio" name="province" title="吉林省">
+              <input type="radio" name="province" title="黑龙江">
+              <input type="radio" name="province" title="江苏省">
+              <input type="radio" name="province" title="浙江省">
+              <input type="radio" name="province" title="安徽省">
+              <input type="radio" name="province" title="福建省">
+              <input type="radio" name="province" title="江西省">
+              <input type="radio" name="province" title="山东省">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">请选择类型：</label>
+            <div class="layui-input-block">
+              <input type="radio" name="type" title="通用" checked>
+              <input type="radio" name="type" title="招聘笔试">
+              <input type="radio" name="type" title="招聘面试">
+              <input type="radio" name="type" title="资格笔试">
+              <input type="radio" name="type" title="资格面试">
+            </div>
+          </div>
+        </form>
+        <div class="part-box dfz-part1">
+          <p class="type-title">轮播图：</p>
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=dfz&type=add&place=banner" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="10%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>序号</th>
+                  <th>是否推荐</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">贤心</a>
+                  </td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <input type="text" value="1" class="num">
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=banner&id=1&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">张爱玲</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1920-09-30</td>
+                  <td>
+                    <input type="text" value="2" class="num">
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=banner&id=2&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">Helen Keller</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="3" class="num">
+                  </td>
+                  <td>是</td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=banner&id=3&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">岳飞</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="4" class="num">
+                  </td>
+                  <td>是</td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=banner&id=4&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">孟子</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="5" class="num">
+                  </td>
+                  <td>否</td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=banner&id=5&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="dfz-page" class="page-box"></div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">横幅：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col width="15%">
+                <col width="15%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>类型</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">地方站横幅</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=dfz&type=change&place=hf" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- PC直播课堂 -->
+      <div class="zbkt-banner tab-show ">
+        <form class="layui-form select-form" action="">
+          <div class="layui-form-item">
+            <label class="layui-form-label">请选择省份：</label>
+            <div class="layui-input-block">
+              <input type="radio" name="province" value="0" title="通用" checked="">
+              <input type="radio" name="province" value="1" title="北京市">
+              <input type="radio" name="province" title="上海市">
+              <input type="radio" name="province" title="天津市">
+              <input type="radio" name="province" title="重庆市">
+              <input type="radio" name="province" title="河北省">
+              <input type="radio" name="province" title="山西省">
+              <input type="radio" name="province" title="内蒙古">
+              <input type="radio" name="province" title="辽宁省">
+              <input type="radio" name="province" title="吉林省">
+              <input type="radio" name="province" title="黑龙江">
+              <input type="radio" name="province" title="江苏省">
+              <input type="radio" name="province" title="浙江省">
+              <input type="radio" name="province" title="安徽省">
+              <input type="radio" name="province" title="福建省">
+              <input type="radio" name="province" title="江西省">
+              <input type="radio" name="province" title="山东省">
+            </div>
+          </div>
+        </form>
+        <div class="part-box dfz-part1">
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=zbkt&type=add" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="10%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>序号</th>
+                  <th>是否推荐</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">贤心</a>
+                  </td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <input type="text" value="1" class="num">
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a href="./add.html?page=zbkt&type=change&id=1&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">张爱玲</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1920-09-30</td>
+                  <td>
+                    <input type="text" value="2" class="num">
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a href="./add.html?page=zbkt&type=change&id=2&current=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">Helen Keller</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="3" class="num">
+                  </td>
+                  <td>是</td>
+                  <td>
+                    <a href="./add.html?page=zbkt&type=change&id=3&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">岳飞</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="4" class="num">
+                  </td>
+                  <td>是</td>
+                  <td>
+                    <a href="./add.html?page=zbkt&type=change&id=4&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">孟子</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="5" class="num">
+                  </td>
+                  <td>否</td>
+                  <td>
+                    <a href="./add.html?page=zbkt&type=change&id=5&current=0" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="zbkt-page" class="page-box"></div>
+        </div>
+      </div>
+      <!-- PC class页面 -->
+      <div class="class-banner tab-show ">
+        <div class="part-box">
+          <p class="type-title">视频课程：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=spkc&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>2</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=spkc&id=2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>3</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=spkc&id=3" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">直播课程：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=zbkc&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>2</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=zbkc&id=2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">教师资格：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=zgz&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">教师招聘：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=zp&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="part-box">
+          <p class="type-title">特岗教师：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=tg&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">听课返现</a>
+                  </td>
+                  <td>2</td>
+                  <td>
+                    <a href="./add.html?page=class&type=change&place=tg&id=2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--PC 招聘页-->
+      <div class="zp-banner tab-show ">
+        <div class="part-box">
+          <p class="type-title">轮播图：</p>
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=zp&type=add&place=banner" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">贤心</a>
+                  </td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <input type="text" value="1" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=banner&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">张爱玲</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1920-09-30</td>
+                  <td>
+                    <input type="text" value="2" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=banner&id=2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">Helen Keller</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="3" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=banner&id=3" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">岳飞</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="4" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=banner&id=4" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">孟子</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="5" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=banner&id=5" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="zp-page" class="page-box"></div>
+        </div>
+
+        <div class="part-box">
+          <p class="type-title">横幅：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col width="15%">
+                <col width="15%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">第一条</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=hf1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">第二条</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=hf2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">第三条</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zp&type=change&place=hf3" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--PC 资格证页-->
+      <div class="zp-banner tab-show ">
+        <div class="part-box">
+          <p class="type-title">轮播图：</p>
+          <div class="search-box clearfix">
+            <input type="text" class="layui-input search-title" placeholder="请输入标题">
+            <button class="layui-btn search-btn">搜索</button>
+            <a href="./add.html?page=zgz&type=add&place=banner" class="add">新增</a>
+          </div>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="20%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>序号</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">贤心</a>
+                  </td>
+                  <td>1989-10-14 18:18:18</td>
+                  <td>1989-10-14</td>
+                  <td>
+                    <input type="text" value="1" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=banner&id=1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">张爱玲</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1920-09-30</td>
+                  <td>
+                    <input type="text" value="2" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=banner&id=2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">Helen Keller</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="3" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=banner&id=3" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">岳飞</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="4" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=banner&id=4" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">孟子</a>
+                  </td>
+                  <td>1880-06-27</td>
+                  <td>1880-06-27</td>
+                  <td>
+                    <input type="text" value="5" class="num">
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=banner&id=5" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                    <a href="javascript:void(0)" class="layui-btn layui-btn-danger layui-btn-radius del">删除</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="zgz-page" class="page-box"></div>
+        </div>
+
+        <div class="part-box">
+          <p class="type-title">横幅：</p>
+          <div class="layui-form">
+            <table class="layui-table">
+              <colgroup>
+                <col width="15%">
+                <col width="15%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">第一条</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=hf1" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">第二条</a>
+                  </td>
+                  <td>
+                    <a href="./add.html?page=zgz&type=change&place=hf2" class="layui-btn layui-btn-normal layui-btn-radius change">修改</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

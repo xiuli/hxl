@@ -1,0 +1,53 @@
+/*
+ *	Place your custom CSS styles here, they will override all existing styles
+ */
+
+
+#float-page-nav {
+    position: fixed;
+    z-index: 2;
+    top: 45px;
+    right: 20px;
+    text-align: right;
+    max-width: 220px;
+    background-color: #eff2f4;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#float-page-nav .nav-ctrl button {
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+}
+#float-page-nav .nav-list {
+    text-align: left;
+    overflow: scroll;
+}
+#float-page-nav h1, #float-page-nav h2, #float-page-nav h3, #float-page-nav h4, #float-page-nav h5, #float-page-nav h6 {
+    margin: 10px 0;
+    height: 15px;
+    user-select: none;
+    overflow: hidden;
+    font-size: 14px;
+    color: #000000;
+    word-break: break-all;
+}
+
+#float-page-nav .indent-level-0 {
+    font-weight: bolder;
+    padding-left: 0px;
+    color: #000000;
+}
+
+#float-page-nav .indent-level-1 {
+    font-weight: bold;
+    padding-left: 10px;
+    color: #666666;
+}
+
+#float-page-nav .indent-level-2 {
+    font-weight: normal;
+    padding-left: 20px;
+    color: #999999;
+}

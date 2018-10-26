@@ -1,0 +1,14 @@
+
+body {
+  background: #f90;
+}
+.div1 {
+  background: url('./images/close.png') no-repeat;
+  width: 100px;
+  height: 200px;
+  border: 1px solid #f90;
+}
+.div2 {
+  background: url('./images/dk1.png') no-repeat;
+  width: 200px;
+}

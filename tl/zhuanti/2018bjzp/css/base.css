@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: 12px;
+  font-weight: 400;
+}
+b,
+em,
+i,
+strong {
+  font-style: normal;
+  font-weight: 400;
+}
+dl,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+a img {
+  border: 0;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+img {
+  vertical-align: top;
+}
+textarea {
+  resize: none;
+}
+input,
+select,
+textarea {
+  outline: 0;
+}
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 0;
+  border: 1px solid #000;
+}
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 12px;
+  background: #fff;
+}
+input {
+  font-family: "Microsoft YaHei";
+}
+textarea {
+  resize: none;
+}
+input,
+textarea {
+  outline: 0;
+  resize: none;
+}
+a,
+b,
+button,
+div,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+i,
+input,
+li,
+optgroup,
+p,
+select,
+span,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}

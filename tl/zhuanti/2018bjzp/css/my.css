@@ -1,0 +1,182 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+.box01 {
+    width: 7.5rem;
+    margin: 0 auto;
+    /* height: 7.8rem; */
+}
+
+.menu_box {
+    background: #fff;
+    margin-bottom: .2rem;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.menu_box .menu_btn {
+    height: 1rem;
+}
+
+.menu_box .menu_btn li {
+    font-size: .3rem;
+    float: left;
+    line-height: 1rem;
+    margin-left: .33rem;
+    margin-right: .33rem;
+    cursor: pointer;
+}
+
+.menu_box .menu_btn li.active {
+    border-bottom: .04rem solid #00d1b3;
+}
+
+.con_box ul li {
+    background: #fff;
+    margin-bottom: .2rem;
+}
+
+/* 资讯 */
+.con_box .newslist li h3 {
+    font-size: .28rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 7.1rem;
+    height: .7rem;
+    line-height: .7rem;
+    border-bottom: 1px solid #ccc;
+    margin-left: .2rem;
+}
+
+.con_box .newslist li p {
+    font-size: .24rem;
+    color: #aaa;
+    line-height: .38rem;
+    margin: .1rem .2rem;
+}
+
+.con_box .newslist li p .red {
+    color: #333;
+}
+
+.con_box .newslist li a time {
+    font-size: .22rem;
+    color: #aaa;
+    line-height: .46rem;
+    display: block;
+    margin-right: .2rem;
+    text-align: right;
+}
+
+/* 推荐课程 */
+.tjkclist li {
+    padding: .24rem .13rem .22rem;
+}
+
+.tjkclist li .title {
+    font-size: .28rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: .2rem;
+}
+
+.tjkclist li .pic_box {
+    float: left;
+    margin-right: .2rem;
+}
+
+.tjkclist li .iteminfo {
+    padding-top: .2rem;
+}
+
+.tjkclist li .iteminfo p {
+    float: left;
+    font-size: .24rem;
+    color: #aaa;
+    line-height: .34rem;
+}
+
+.tjkclist li .iteminfo .price {
+    position: relative;
+    width: 4rem;
+    margin-top: .3rem;
+}
+
+.tjkclist li .iteminfo .price del {
+    font-size: .23rem;
+}
+
+.tjkclist li .iteminfo .price strong {
+    font-size: .35rem;
+    color: #ff0048
+}
+
+.tjkclist li .iteminfo .price i {
+    position: absolute;
+    left: 2.5rem;
+    width: 1.52rem;
+    height: .54rem;
+    background: #00d1b3;
+    text-align: center;
+    line-height: .54rem;
+    color: #fff;
+    border-radius: .05rem;
+}
+
+/* 资料共享 */
+.itemlist li {
+    padding: .24rem .13rem .22rem;
+}
+
+.itemlist .pic_box {
+    float: left;
+    margin-right: .2rem;
+}
+
+.itemlist .iteminfo {
+    float: left;
+    margin-top: .3rem;
+}
+
+.itemlist .iteminfo h3 {
+    font-size: .3rem;
+    line-height: .34rem;
+    width: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.itemlist .iteminfo .des {
+    font-size: .26rem;
+    line-height: .34rem;
+    width: 4rem;
+    color: #aaa;
+    margin-top: .2rem;
+}
+
+.loadingEnd {
+    display: none;
+    background: #fff;
+    line-height: .5rem;
+    font-size: .24rem;
+    text-align: center;
+    margin-bottom: .3rem;
+}
+
+.loadingEnd.active {
+    display: block;
+}
+
+.newslist img,
+.tjkclist img,
+.itemlist img {
+    width: 2.56rem;
+}
+/* 写图片时一般要加上宽度，防止图片的大小不一致，只写宽度可以图片成比例缩放 */

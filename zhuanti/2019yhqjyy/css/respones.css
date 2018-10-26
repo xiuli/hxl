@@ -1,0 +1,246 @@
+@media (max-width: 1099px) {
+  .pc-top .t-middle {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .footer .copy-middle {
+    width: 100%;
+  }
+  .banner {
+    width: 100%;
+    background-size: cover;
+  }
+  .main {
+    width: 100%;
+  }
+  .qqgroup .main .qqgroup-con {
+    width: 96%;
+    height: auto;
+    background: #fffbe8;
+    border: 2px solid #2893df;
+    border-radius: 20px;
+    padding-bottom: 3rem;
+  }
+}
+@media (max-width: 1024px) {
+  .pc-top {
+    display: none;
+  }
+  .phone-top {
+    display: block;
+  }
+  .banner {
+    display: none;
+  }
+  .phone-banner {
+    display: block;
+  }
+  .phone-profile {
+    display: block;
+  }
+  html {
+    font-size: 16px;
+  }
+  .three-yuyue .main .three-con {
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .public-title {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 28px;
+  }
+  .three-yuyue .main .three-con dl {
+    margin-left: 2rem;
+  }
+  .three-yuyue .main .three-con .first {
+    margin-left: 0;
+  }
+  .three-yuyue .main .three-con .line {
+    display: none;
+  }
+  .time .main .time-list {
+    margin-left: 0;
+  }
+  .info .main {
+    padding: 0 10px;
+  }
+  .info .main .formcon {
+    width: 100%;
+    background: #fffbe8;
+    border: 2px solid #ac7c58;
+    border-radius: 30px;
+  }
+  .process .main .process-con {
+    width: 100%;
+    background: none;
+    position: static;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: auto;
+  }
+  .process .main .process-con .pro-list {
+    position: relative;
+  }
+  .process .main .process-con .pro-list li {
+    background: none;
+    position: static;
+    margin: 0 auto;
+    height: 2rem;
+  }
+  .process .main .process-con .pro-list li a {
+    position: static;
+  }
+  .process .main .process-con .pro-list .line {
+    display: block;
+  }
+  .process .main .process-con .pro-list .pro-itme1,
+  .process .main .process-con .pro-list .pro-itme2,
+  .process .main .process-con .pro-list .pro-itme3,
+  .process .main .process-con .pro-list .pro-itme4 {
+    background: #fde176;
+    position: static;
+    margin: 0 auto;
+    width: 80%;
+    height: 3rem;
+    border-radius: 5px;
+    line-height: 3rem;
+  }
+  .process .main .process-con .pro-list .pro-itme1 span,
+  .process .main .process-con .pro-list .pro-itme2 span,
+  .process .main .process-con .pro-list .pro-itme3 span,
+  .process .main .process-con .pro-list .pro-itme4 span {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  .process .main .process-con .pro-list .pro-itme5 {
+    position: static;
+    width: 8rem;
+    height: 8rem;
+  }
+  .erweima {
+    height: 23rem;
+  }
+  .erweima .main .erweima-title {
+    margin-top: 5rem;
+  }
+  .erweima .main .erweima-con {
+    margin-top: 2rem;
+  }
+  .erweima .main .erweima-con dl {
+    margin-left: 1rem;
+  }
+  .erweima .main .erweima-con dl dt {
+    width: 9rem;
+    height: 9rem;
+  }
+  .footer .copy-middle {
+    width: 100%;
+  }
+  .footer .copy-middle .footer-list {
+    display: none;
+  }
+  .footer .copy-middle p {
+    width: 100%;
+    padding-top: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .three-yuyue {
+    height: 22rem;
+  }
+  .three-yuyue .main .three-con {
+    margin-top: 1rem;
+  }
+  .three-yuyue .main .three-con dl {
+    width: 8rem;
+  }
+  .three-yuyue .main .three-con dl dt {
+    width: 8.8rem;
+    height: 8.8rem;
+  }
+  .three-yuyue .main .three-con dl dt .icon {
+    margin-top: 1.8rem;
+  }
+}
+@media (max-width: 415px) {
+  html {
+    font-size: 12px;
+  }
+  .time {
+    height: 36rem;
+  }
+  .time .main .time-list {
+    margin-top: 3rem;
+    margin-left: 1rem;
+  }
+  .time .main .time-list li {
+    margin-bottom: 1.5rem;
+  }
+  .time .main .time-list .t-two {
+    margin-left: 8rem;
+  }
+  .time .main .time-list .t-three {
+    margin-left: 1rem;
+  }
+  .time .main .time-list .t-three a {
+    padding-left: 5.5rem;
+  }
+  .time .main .time-list .t-four {
+    margin-left: 8rem;
+  }
+  .time .main .time-list .t-five {
+    margin-left: 1rem;
+  }
+  .time .main .time-list .t-five a {
+    padding-left: 5.9rem;
+  }
+  .qqgroup .main .qqgroup-con .qqlist li {
+    margin-left: 0.8rem;
+  }
+  .qqgroup .main .qqgroup-con .qqlist li .item .f {
+    display: none;
+  }
+  .qqgroup .main .qqgroup-con .qqlist li .item:hover .z {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+  }
+  .footer .copy-middle p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 376px) {
+  .time .main .time-list {
+    margin-left: 0;
+  }
+  .qqgroup .main .qqgroup-con .qqlist li {
+    margin-left: 0.1rem;
+  }
+  .qqgroup .main .qqgroup-con .qqlist li .item .z {
+    width: 6rem;
+    padding-left: 0.8rem;
+  }
+}
+@media (max-width: 361px) {
+  .three-yuyue .main .three-con dl dt {
+    width: 7rem;
+    height: 7rem;
+  }
+  .three-yuyue .main .three-con dl dt .icon {
+    margin-top: 1.7rem;
+  }
+  .three-yuyue .main .three-con dl dt p {
+    font-size: 1rem;
+    padding-top: 0.2rem;
+  }
+  .three-yuyue .main .three-con .first {
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=respones.css.map */

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报考公告</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+<body>
+    <div class="layui-input-block" id="input_box">
+        <input type="text" name="date" id="startdate" autocomplete="off" placeholder="请选择开始时间" class="layui-input data-input start-time">
+        <input type="text" name="date" id="enddate" autocomplete="off" placeholder="请选择结束时间" class="layui-input data-input end-time">
+        <button type="button" class="layui-btn btn-banner">立即生成</button>
+    </div>
+    <table width="750" cellspacing="0" cellpadding="0" bordercolor="#000000" border="1" align="center">
+        <thead>
+            <tr>
+                <th style="text-align: center; padding:3px" width="80"><strong>地区</strong></th>
+                <th style="text-align: center; padding:3px" width="430"><strong>报考公告</strong></th>
+                <th style="text-align: center; padding:3px" width="120"><strong>公告截止时间</strong></th>
+                <th style="text-align: center; padding:3px" width="120"><strong>公告详情</strong></th>
+            </tr>
+        </thead>
+        <tbody class="t_body">
+            <!--<tr>
+                <td style="text-align: center; padding:3px" rowspan="3"><strong>天津</strong></td>
+                <td style="text-align: center; padding:3px">2018年山东省济南市平阴县招聘19人公告</td>
+                <td style="text-align: center; padding:3px">11月3日</td>
+                <td style="text-align: center; padding:3px"><a href="http://www.hteacher.net/class/guojia/zgz.php" target="_blank"><span style="color: #00f;">点击查看</span></a></td>
+            </tr>-->
+        </tbody>
+    </table>
+    <script src="http://upload.hteacher.net/webupload/js/jquery-3.0.0.min.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script>
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#startdate',
+                type: 'datetime'
+            });
+
+            laydate.render({
+                elem: '#enddate',
+                type: 'datetime'
+            });
+        })
+        $('.layui-btn').on('click',function(){
+            if(!$('#startdate').val()){
+                alert('开始时间不能为空哦');
+                return;
+            }
+            if(!$('#enddate').val()){
+                alert('结束时间不能为空哦');
+                return;
+            }
+            if($(this).html() == '立即生成' || $(this).html() == '重新生成'){
+                $(this).html('生成中...');
+                $.post('http://www.hteacher.net/xidx258nh3x1/notice_test.php',{
+                    startime:$('#startdate').val(),
+                    endtime:$('#enddate').val()
+                },function(res){
+                    if(res.msg == 'success'){
+                        if(res.datalist.length > 0){
+                            $('.t_body').html('');
+                            var oTr ='';
+                            var notice_info = '';
+                            $(res.datalist).each(function(index,elem){
+                                $(elem.data).each(function(i,e){
+                                    oTr = $('<tr></tr>');
+                                    if(e.deadtime){
+                                        notice_info = e.deadtime;
+                                    }else{
+                                        notice_info = '详见公告';
+                                    }
+                                    if(i == 0){
+                                        oTr.html('\
+                                        <td style="text-align: center; padding:3px" rowspan="'+elem.data.length+'"><strong>'+elem.province+'</strong></td>\
+                                        <td style="text-align: left; padding:3px 10px">'+e.title+'</td>\
+                                        <td style="text-align: center; padding:3px">'+notice_info+'</td>\
+                                        <td style="text-align: center; padding:3px"><a href="'+e.arctilelink+'" target="_blank"><span style="color: #00f;">点击查看</span></a></td>\
+                                        ');
+                                    }else{
+                                       oTr.html('\
+                                        <td style="text-align: left; padding:3px 10px">'+e.title+'</td>\
+                                        <td style="text-align: center; padding:3px">'+notice_info+'</td>\
+                                        <td style="text-align: center; padding:3px"><a href="'+e.arctilelink+'" target="_blank"><span style="color: #00f;">点击查看</span></a></td>\
+                                        '); 
+                                    }
+                                    $('.layui-btn').html('重新生成');
+                                    $('.t_body').append(oTr);
+                                });
+                                
+
+                            });
+                        }else{
+                            $('.layui-btn').html('重新生成');
+                            alert('请改变搜索时间哦');
+                        } 
+                    }else{
+                        $('.layui-btn').html('重新生成');
+                        alert('查找失败哦');
+                    }
+                },'json');
+            }
+        });
+	</script>
+</body>
+</html>

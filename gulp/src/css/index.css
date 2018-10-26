@@ -1,0 +1,23 @@
+.div1 {
+  border: 1px solid #f90;
+  width: 200px;
+  background: url('./images/dk1.png') no-repeat;
+}
+body {
+  background: #f90;
+}
+.div1 {
+  background: url('./images/close.png') no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.div2 {
+  background: url('./images/backicon.png') no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.div3 {
+  background: url('./images/delicon.png') no-repeat;
+  width: 100px;
+  height: 100px;
+}

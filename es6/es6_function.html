@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6-function</title>
+</head>
+
+<body>
+    <script>
+        {
+            function show(a = '0', b = '1') {
+                console.log(a, b);
+            }
+            show('12');
+        } {
+            function show(a = 12) {
+                //var a=13;
+                //let a=14;
+                console.log(a);
+            }
+            show();
+        } {
+            function show(...res) {
+                console.log(res);
+            }
+            show(1, 2, 3, 4, 5);
+        } {
+            function show(a, b, ...c) {
+                console.log(a, b);
+                console.log(c);
+            }
+            show(1, 2, 3, 4, 5);
+        }
+        // 复制数组
+        {
+            let arr = [1, 2, 3, 4];
+            let arr2 = [...arr];
+            console.log(arr, arr2);
+        }
+
+        // 箭头函数  改变this指向
+        {
+            let show = (a = 0, b = 0) => {
+                console.log(a, b);
+                return a + b;
+            }
+            console.log(show(12, 5));
+        }
+    </script>
+</body>
+
+</html>

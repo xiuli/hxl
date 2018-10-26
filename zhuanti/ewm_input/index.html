@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在线二维码图片</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="/lib/jquery.js"></script>
+    <script type="text/javascript" src="./js/qrcode.js"></script>
+    <script type="text/javascript" src="./js/canvas.js"></script>
+    <style>
+        body{
+            text-align: center;
+            margin: 0 auto;
+        }
+        #htmlVal{
+            display: block;
+            margin: 30px auto;
+        }
+        #canvas{
+            width:200px;
+            height: 200px;
+        }
+    </style>
+</head>
+    <body>
+        <textarea placeholder="请说出你想对她说的话" cols="30" rows="4" id="htmlVal"></textarea>
+        <input type="hidden"  id="url_url" value="http://mobile.hteacher.net/index.php?val="   maxlength="255"/>
+        <canvas height="180" width="180" id="canvas"></canvas>
+        <script type="text/javascript" src="./js/index.js"></script>
+    </body>
+</html>
+
+

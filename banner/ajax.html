@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <script>
+        async function getData(){
+            return $.post('./php/query_banner.php',{
+                type: 1,
+                place: 1
+            },function(res){
+
+            },'json');
+        }
+        var pcLength = 0;
+        getData().then(val => {
+            var  {length:pc_length} = val;
+            return pc_length;
+        }).then(res => {
+            pcLength = res;
+        });
+        console.log(pcLength);
+        
+    </script>
+</body>
+</html>

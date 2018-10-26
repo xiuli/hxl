@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>华图在职培训抽奖</title>
+
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+</head>
+
+<body>
+
+<div class="bg">
+
+    <img src="style/bg.jpg">
+
+</div>
+
+<div class="box">
+
+    <div class="jz">
+
+        <p><b>抽奖活动</b></p>
+
+        <span class="name">姓名</span><br/>
+
+        <span class="phone">电话</span><br/>
+
+        <div class="start" id="btntxt" onclick="start()">开始</div>
+
+    </div>
+
+    <div class="zjmd">
+
+        <p class="p1">中奖者名单</p>
+
+        <div class="list">
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+    var xinm = new Array();
+
+    var phone = new Array();
+
+    var nametxt = $('.name');
+
+    var phonetxt = $('.phone');
+
+    var pcount = 0;//参加人数
+
+    var runing = true;
+
+    var td = 19;
+
+    var num = 0;
+
+    var t;
+
+
+    function getUser() {
+        $.get('./getUser.php', {}, function (res) {
+            for (var i = 0; i < res.length; i++) {
+                xinm.push(res[i].name);
+                phone.push(res[i].phone);
+            }
+        }, 'json');
+    }
+
+    getUser();
+
+    //开始停止
+    function start() {
+        if (td == 0) {
+            alert("抽奖结束");
+            return false;
+        }
+
+        if (xinm.length < 0 || phone.length < 0) {
+            return false;
+        }
+
+        if (runing) {
+
+            runing = false;
+
+            $('#btntxt').removeClass('start').addClass('stop');
+
+            $('#btntxt').html('停止');
+
+            startNum()
+
+        } else {
+
+            runing = true;
+
+            $('#btntxt').removeClass('stop').addClass('start');
+
+            $('#btntxt').html('开始');
+
+            stop();
+
+            zd();
+
+        }
+
+    }
+
+    //循环参加名单
+
+
+    function startNum() {
+        if (pcount == 0) {
+            pcount = xinm.length;
+        }
+        num = Math.floor(Math.random() * pcount);
+// console.log(num);
+        nametxt.html(xinm[num]);
+
+        phonetxt.html(phone[num]);
+
+        t = setTimeout(startNum, 1);
+
+    }
+
+    //停止跳动
+
+    function stop() {
+
+        pcount = xinm.length - 1;
+
+        clearInterval(t);
+
+        t = 0;
+
+    }
+
+    //从一等奖开始指定前3名
+
+    function zd() {
+
+        if (td == 0) {
+            alert("抽奖结束");
+
+        } else {
+
+            // $('.list').append("<p>" + td + ' ' + phone[num] + " -- " + xinm[num] + "</p>");
+            $('.list').append("<p>" + td + ' ' + xinm[num] + " -- " + phone[num] + "</p>");
+            // $.post('./insertUser.php', {name: xinm[num], phone: phone[num]}, function (res) {
+            //     if (res.id > 0) {
+            //         console.log("ok");
+            //     } else {
+            //         console.log("shit");
+            //     }
+            // }, 'json');
+            //将已中奖者从数组中"删除",防止二次中奖
+
+            xinm.splice($.inArray(xinm[num], xinm), 1);
+
+            phone.splice($.inArray(phone[num], phone), 1);
+        }
+
+        td = td - 1;
+
+    }
+
+
+</script>
+</body>
+
+</html>
+
+-- update user set del = 0;
+-- select * from user where del=1;
+select * from user where name in (select name from user group by name having count(name) > 1);

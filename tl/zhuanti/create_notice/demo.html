@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <title>表格</title>
+    <style>
+        #input_box{
+            width: 750px;
+            margin:40px auto 50px;
+        }
+        #startdate,#enddate{
+            display:inline-block;
+            width:280px;
+            margin-right: 40px;
+        }  
+        table{
+            margin:10px auto;
+            
+            border-top:3px solid #097300;
+            
+        }
+        td{
+            text-align: center;
+            border:1px solid #333;
+            line-height: 25px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="layui-input-block" id="input_box">
+        <input type="text" name="date" id="startdate" autocomplete="off" placeholder="请选择开始时间" class="layui-input data-input start-time">
+        <input type="text" name="date" id="enddate" autocomplete="off" placeholder="请选择结束时间" class="layui-input data-input end-time">
+        <button type="button" class="layui-btn btn-banner">立即生成</button>
+    </div>
+    <table>
+        <thead>
+            <th>
+            <td style="width:80px">地区</td>
+            <td style="width: 400px">报考公告</td>
+            <td style="width: 200px">公告截止时期</td>
+            <td style="width:150px">公告详情</td>
+            </th>
+        </thead>
+        <tbady>
+            <tr>
+                <td rowspan=""></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbady>
+    </table>
+    <script src="http://upload.hteacher.net/webupload/js/jquery-3.0.0.min.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script>
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#startdate',
+                type: 'datetime'
+            });
+
+            laydate.render({
+                elem: '#enddate',
+                type: 'datetime'
+            });
+        })
+
+        $('.layui-btn').on('click', function () {
+            if (!$('#startdate').val()) {
+                alert('请输入起始时间');
+                return; //写上return
+            } else {
+                if (!$('#enddate').val()) {
+                    alert('请输入结束时间');
+                    return;
+                }
+            }
+
+          
+            if ($(this).val() == '立即生成' || $(this).val() == '重新生成') {
+           
+                $(this).val() == '生成中...';
+                $.post('http://www.hteacher.net/xidx258nh3x1/notice_test.php',{
+                    startime: $('#startdate').val(),
+                    endtime: $('#enddate').val()
+                },(res)=>{
+                    if(res.msg=='success'){                //加双引号
+                        
+                    }else {
+                        if(res.msg=='error'){
+                            alert(res.msgdetail);
+                        }
+                    }
+                })
+            }
+
+           
+        });
+    </script>
+</body>
+
+</html>

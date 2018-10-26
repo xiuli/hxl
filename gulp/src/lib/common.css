@@ -1,0 +1,13 @@
+.div1 {
+  border: 1px solid #f90;
+  width: 200px;
+}
+body {
+  background: #f90;
+}
+.div1 {
+  background: url('./images/close.png') no-repeat;
+  width: 100px;
+  height: 200px;
+  border: 1px solid #f90;
+}

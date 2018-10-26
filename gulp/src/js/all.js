@@ -1,0 +1,1 @@
+"use strict";var a=12,b=5,c=10,d=14,e=121,dsad="dsad";console.log(111);var num=function(a,d){return a+d};

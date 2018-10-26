@@ -1,0 +1,359 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td,
+img,
+cite {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  border: none;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dt,
+dd,
+li,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  font: 16px/36px "MicroSoft YaHei", "Hiragino Sans GB", Arial, sans-serif;
+}
+html,
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  position: relative;
+  background: #fff;
+  min-width: 1000px;
+}
+article,
+iframe {
+  display: block;
+  border: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol,
+ul,
+dl,
+dt,
+dd,
+a,
+i,
+b,
+em,
+strong,
+img,
+input {
+  margin: 0;
+  padding: 0;
+}
+img {
+  vertical-align: top;
+}
+b,
+strong,
+i,
+em {
+  font-weight: normal;
+}
+html,
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  max-width: 100%;
+  display: block;
+  border: none;
+}
+body {
+  background: #fff;
+  min-width: 1000px;
+}
+article,
+iframe {
+  display: block;
+  border: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+}
+input::focus-inner {
+  outline: 0;
+  padding: 0;
+  border: 0;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: 0;
+}
+:focus {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+.clear {
+  clear: both;
+  height: 0px;
+  width: 100%;
+  font-size: 1px;
+  line-height: 0px;
+  visibility: hidden;
+  overflow: hidden;
+}
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.hide,
+.mobshow {
+  display: none;
+}
+::selection {
+  background: #d03333;
+  color: white;
+  text-shadow: none;
+}
+::-webkit-scrollbar-track-piece {
+  width: 10px;
+  background-color: #f2f2f2;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #707070;
+}
+a,
+b,
+button,
+div,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+i,
+input,
+li,
+optgroup,
+p,
+select,
+span,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: url("http://www.hteacher.net/zhuanti/active_list/images/bg.png") no-repeat 0 0;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0 5% 5%;
+}
+.banner_module {
+  font-size: 30px;
+  margin: 30px auto 50px;
+  text-align: center;
+}
+.select-form {
+  margin-bottom: 20px;
+}
+.layui-form-label {
+  width: 100px;
+}
+.layui-input-block {
+  margin-left: 130px;
+}
+.layui-table td,
+.layui-table th {
+  text-align: center;
+}
+a.layui-btn:hover,
+a.add:hover {
+  color: #fff;
+}
+a:hover {
+  color: #333;
+}
+.add {
+  width: 112px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  color: #fff;
+  background-color: #20a0ff;
+  font-size: 14px;
+  border-radius: 4px;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.look,
+.change,
+.del {
+  height: 30px;
+  line-height: 30px;
+}
+.page-box {
+  text-align: center;
+}
+.search-box {
+  height: 50px;
+}
+.search-box .search-title {
+  float: left;
+  width: 50%;
+  margin-left: 22%;
+}
+.search-box .search-btn {
+  float: left;
+}
+.tab-show {
+  display: none;
+}
+.tab-show.active {
+  display: block;
+}
+.type-title {
+  font-weight: bold;
+}
+.part-box {
+  margin-bottom: 20px;
+}
+.select-province div {
+  margin-bottom: 10px;
+}
+.dfz-part1 {
+  margin-top: 50px;
+}
+.btn-checkboxT {
+  margin-top: 4px;
+  margin-left: 20px;
+}
+.btn-checkboxP {
+  margin-top: -4px;
+  margin-left: 20px;
+}
+.left-box {
+  width: 20%;
+  position: fixed;
+  left: 30px;
+  top: 150px;
+}
+.left-box li {
+  border-bottom: 1px solid #999;
+}
+.left-box li.active {
+  background: #1E9FFF;
+}
+.left-box li:hover {
+  background: #1E9FFF;
+}
+.left-box .layui-nav-item a:hover {
+  background: #1E9FFF;
+}
+.right-box {
+  width: 78%;
+}
+.num {
+  border: 1px solid #999;
+  text-align: center;
+  width: 90px;
+  height: 26px;
+  border-radius: 20px;
+}
+.add-form {
+  margin-top: 50px;
+}
+.data-input {
+  width: 276px;
+  margin-right: 20px;
+  display: inline-block;
+}
+.temp-box {
+  display: none;
+}
+.provinceBox.active,
+.typeBox.active,
+.titleBox.active,
+.urlBox.active,
+.imgBox.active,
+.imgsBox.active,
+.timeBox.active,
+.recommendBox.active,
+.submiBox.active {
+  display: block;
+}

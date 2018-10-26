@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <title>地铁查询</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <style>
+        body {
+            margin: 50px auto;
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>乘车查询：</p>
+        <div>
+            <input type="text" class="start_address" placeholder="请输入起点站">
+            <input type="text" class="end_address" placeholder="请输入终点站">
+            <input type="button" class="btn1" value="查询">
+        </div>
+    </div>
+    <div>
+        <p>站点查询：</p>
+        <div>
+            <input type="text" class="address" placeholder="请输入站点">
+            <input type="button" class="btn2" value="查询">
+        </div>
+    </div>
+    <div>
+        <p>路线查询：</p>
+        <div>
+            <input type="text" class="line_address" placeholder="请输入路线">
+            <input type="button" class="btn3" value="查询">
+        </div>
+    </div>
+
+    <div>
+        <h2>温馨提示：</h2>
+        <p>当前系统支持两条线路，一号线和五号线；</p>
+        <p>一号线录入的站点有：天通苑北，立水桥，东单，天坛东门，宋家庄</p>
+        <p>五号线录入的站点有：苹果园，天安门，东单，国贸，四惠</p>
+    </div>
+    <script>
+        $('.btn1').on('click', function () {
+            if (!$.trim($('.start_address').val())) {
+                alert('起点站不能为空哦');
+                return;
+            }
+            if (!$.trim($('.end_address').val())) {
+                alert('终点站不能为空哦');
+                return;
+            }
+            $.ajax({
+                url: './getdata.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    startAddress: $.trim($('.start_address').val()),
+                    endAddress: $.trim($('.end_address').val())
+                },
+                success: function (res) {
+                    if (res.state == 0) {
+                        alert(res.message);
+                    } else {
+                        if (res.length == 2) {
+                            alert('欢迎您来查询，您不需要换成，乘坐' + res[0].line + '号线即可哦');
+                        } else {
+                            if (res[2] == res[0].address) {
+                                alert('欢迎您来查询，您不需要换成，乘坐' + res[1].line + '号线即可哦');
+                            } else if (res[2] == res[1].address) {
+                                alert('欢迎您来查询，您不需要换成，乘坐' + res[0].line + '号线即可哦');
+                            } else {
+                                alert('欢迎您来查询，您从' + res[0].line + '号线' + res[0].address + '上车，在' + res[2] + '换成' + res[1].line + '号线，即可到达' + res[1].address + '');
+                            }
+                        }
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+        });
+
+        $('.btn2').on('click', function () {
+            if (!$.trim($('.address').val())) {
+                alert('站点不能为空哦');
+                return;
+            }
+            $.ajax({
+                url: './getdata.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    address: $.trim($('.address').val()),
+                },
+                success: function (res) {
+                    console.log(res);
+                    if (res.state == 0) {
+                        alert(res.message);
+                    } else {
+                        alert('当前站点是在' + res[2] + '号线上哦');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+        });
+
+        $('.btn3').on('click', function () {
+            if (!$.trim($('.line_address').val())) {
+                alert('路线不能为空哦');
+                return;
+            }
+            $.ajax({
+                url: './getdata.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    lineAddress: $.trim($('.line_address').val()),
+                },
+                success: function (res) {
+                    if (res.state == 0) {
+                        alert(res.message);
+                    } else {
+                        var address = '';
+                        for (var i = 0; i < res.length; i++) {
+                            address += res[i].address + ',';
+                        }
+                        address = address.substring(0, address.length - 1);
+                        alert('当前线路上存在' + address + '等站点');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

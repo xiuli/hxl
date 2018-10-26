@@ -1,0 +1,19 @@
+gulp插件：
+    1、处理less：gulp-less
+    2、合并文件：gulp-concat
+    3、压缩css：gulp-clean-css
+    4、删除文件：del
+    5、es6转es5：gulp-babel babel-core babel-preset-env
+    6、压缩js：gulp-uglify
+    7、修改文件名：gulp-rename
+    8、压缩图片：gulp-imagemin
+    9、base64图片：gulp-base64
+    10、添加版本号：gulp-rev
+    11、替换文件名称：gulp-rev-collector
+    12、克隆：gulp-clone
+    13、压缩html：gulp-htmlmin
+    14、处理异步：run-sequence
+
+
+
+    
